@@ -1,7 +1,9 @@
 {
     "name": "ahir/pathman",
+    "type": "library",
     "description": "Laravel Directory Creator",
     "keywords": ["laravel", "directory"],
+    "homepage": "https://github.com/ahirarge/pathman",
     "license": "MIT",
     "authors": [
         {
