@@ -19,7 +19,7 @@ class Pathman {
 	public static function timeFolders($root)
 	{
 		// Create folders
-		$folders = explode('-', date('Y-m-d-H-i'));
+		$folders = explode('-', date(\Config::get('pathman::time-pattern')));
 		foreach ($folders as $key) {
 			if (\Config::get('pathman::hashing') !== false) {
 				$key = hash(\Config::get('pathman::hashing'), $key);
@@ -60,8 +60,8 @@ class Pathman {
 				Debugbar::error($message);
 				throw new Exception($message);				
 			}
+			Debugbar::info("Directory is created: $path");
 		}
-		Debugbar::info("Directory is created: $path");
 	}
 
 	/**
@@ -82,8 +82,8 @@ class Pathman {
 				Debugbar::error($message);
 				throw new Exception($message);
 			}
+			Debugbar::info("Directory permissions is set: $path");
 		}
-		Debugbar::info("Directory permissions is set: $path");
 	}
 
 }
