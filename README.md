@@ -23,6 +23,15 @@ In the $providers array add the following service provider for this package.
 ```php
 'Ahir\Pathman\PathmanServiceProvider',
 ```
+### Configuration
+
+Library has got two different configuration parameters.
+
+* `hashing`: This parameter is using with time folders method. You can choose "false" value or any php hashing algorithm. (md5, adler32 etc.)
+
+* `time-pattern`: This parameter is setting time folders structure.
+
+### Examples
 
 ##### Create Folder and Set Writable
 
