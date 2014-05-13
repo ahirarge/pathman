@@ -18,6 +18,11 @@ class Pathman {
 	*/
 	public static function timeFolders($root)
 	{
+		// Checking seperation
+		if (strpos($root, '/') === false) {
+			$root.='/';
+		}
+		self::set($root);
 		// Create folders
 		$folders = explode('-', date(\Config::get('pathman::time-pattern')));
 		foreach ($folders as $key) {
@@ -39,8 +44,13 @@ class Pathman {
 	*/
 	public static function set($path)
 	{
-		self::_create($path);
-		self::_permissions($path);
+		try {
+			self::_create($path);
+			self::_permissions($path);
+			return true;			
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage());
+		}
 	}
 
 	/**
