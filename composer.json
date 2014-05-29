@@ -26,6 +26,7 @@
     },
     "autoload": {
         "classmap": [
+            "app/commands",
             "src/config"
         ],
         "psr-0": {
