@@ -1,7 +1,6 @@
 <?php namespace Ahir\Pathman;
 
 use Exception;
-use Debugbar;
 
 class Pathman {
 
@@ -32,7 +31,6 @@ class Pathman {
             $root = $root.$key.'/';
             self::set($root);
         }
-        Debugbar::info('Times folders was created.');
         return $root;
     }   
 
@@ -67,10 +65,8 @@ class Pathman {
                 $result = mkdir($path, 0777);
             } catch (Exception $e) {
                 $message = 'Creating error: '.$path;                    
-                Debugbar::error($message);
                 throw new Exception($message);              
             }
-            Debugbar::info("Directory is created: $path");
         }
     }
 
@@ -89,10 +85,8 @@ class Pathman {
                 chmod($path, 0777);
             } catch (Exception $e) {
                 $message = 'Permission error: '.$path;
-                Debugbar::error($message);
                 throw new Exception($message);
             }
-            Debugbar::info("Directory permissions is set: $path");
         }
     }
 
