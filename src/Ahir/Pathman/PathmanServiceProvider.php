@@ -32,8 +32,6 @@ class PathmanServiceProvider extends ServiceProvider {
         {
             return new Pathman;
         });
-
-        // Shortcut so developers don't need to add an Alias in app/config/app.php
         $this->app->booting(function()
         {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
