@@ -23,6 +23,14 @@ In the $providers array add the following service provider for this package.
 ```php
 'Ahir\Pathman\PathmanServiceProvider',
 ```
+Add the `Pathman` facades to the `aliases` array in `app/config/app.php`:
+
+```php
+'aliases' => array(
+		'Pathman' => 'Ahir\Pathman\Facades\Pathman',
+	),
+```
+
 ### Configuration
 
 Library has got two different configuration parameters.

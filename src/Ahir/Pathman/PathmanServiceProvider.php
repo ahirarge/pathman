@@ -32,11 +32,6 @@ class PathmanServiceProvider extends ServiceProvider {
         {
             return new Pathman;
         });
-        $this->app->booting(function()
-        {
-            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Pathman', 'Ahir\Pathman\Facades\Pathman');
-        });		
 	}
 
 	/**
