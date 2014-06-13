@@ -15,13 +15,13 @@ class Pathman {
     * @param  string $root
     * @return string 
     */
-    public static function timeFolders($root)
+    public function timeFolders($root)
     {
         // Checking seperation
         if (strpos($root, '/') === false) {
             $root.='/';
         }
-        self::set($root);
+        $this->set($root);
         // Create folders
         $folders = explode('-', date(\Config::get('pathman::time-pattern')));
         foreach ($folders as $key) {
@@ -29,7 +29,7 @@ class Pathman {
                 $key = hash(\Config::get('pathman::hashing'), $key);
             }
             $root = $root.$key.'/';
-            self::set($root);
+            $this->set($root);
         }
         return $root;
     }   
@@ -40,11 +40,11 @@ class Pathman {
     * @param  string $path
     * @return null
     */
-    public static function set($path)
+    public function set($path)
     {
         try {
-            self::_create($path);
-            self::_permissions($path);
+            $this->_create($path);
+            $this->_permissions($path);
             return true;            
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -57,7 +57,7 @@ class Pathman {
     * @param  string $path
     * @return null
     */
-    protected static function _create($path)
+    protected function _create($path)
     {
         # Check directory
         if (!is_dir($path)) {
@@ -76,7 +76,7 @@ class Pathman {
     * @param  string $path
     * @return null
     */
-    protected static function _permissions($path)
+    protected function _permissions($path)
     {
         # Check permissions
         $permission = substr(sprintf('%o', fileperms($path)), -4);
